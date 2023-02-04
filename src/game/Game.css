@@ -1,0 +1,19 @@
+.inputPlayer {
+  border: none;
+  background-color: transparent;
+  font-size: 90px;
+  text-align: center;
+  font-family: "League Gothic", sans-serif;
+  text-transform: uppercase;
+  width: 100%;
+  color: white;
+  caret-color: #e8dd57;
+  margin-bottom: 20px;
+}
+.inputPlayer:focus-visible {
+  outline: none;
+}
+.btnList {
+  display: flex;
+  justify-content: center;
+}

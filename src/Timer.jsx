@@ -1,15 +1,21 @@
 import { useState, useEffect } from "react";
+import "./Timer.css";
 
-function Timer({ duration }) {
-  console.log("render timer");
-  const [durationTime, setDurationTime] = useState(duration + 1);
+function Timer(props) {
+  document.documentElement.style.setProperty(
+    "--props.duration",
+    props.duration + "s"
+  );
+  const [durationTime, setDurationTime] = useState(props.duration + 1);
   useEffect(() => {
     setDurationTime(durationTime - 1);
   }, []);
 
   useEffect(() => {
-    console.log(durationTime);
-    if (!durationTime || durationTime <= 0) return;
+    if (!durationTime || durationTime <= 0) {
+      props.istimeisup();
+      return;
+    }
     const intervalId = setInterval(() => {
       setDurationTime(durationTime - 1);
     }, 1000);
@@ -18,7 +24,10 @@ function Timer({ duration }) {
 
   return (
     <div className="timer">
-      <h1 className="yellow">Timer</h1>
+      <div className="clock">
+        <div className="clock-face"></div>
+        <div className="clock-static"></div>
+      </div>
       <h2 className="timeLeft">{durationTime}</h2>
     </div>
   );

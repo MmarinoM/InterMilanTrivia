@@ -1,11 +1,15 @@
 import background from "../img/bg-1.jpg";
 import logo from "../img/inter-logo.svg";
+import JerseyNumber from "../jerseyNumber/JerseyNumber";
 import Timer from "../Timer";
 import "./Header.css";
 function Header(props) {
-  console.log("render header");
+  const setTimeIsup = () => {
+    props.setistimeup();
+  };
   return (
     //get children.bg and set background image to value of children.bg
+
     <div
       className="header"
       style={{
@@ -20,9 +24,12 @@ function Header(props) {
         {props.startGame == false ? (
           <h1 className="yellow">{props.title}</h1>
         ) : (
-          <Timer duration={props.duration}></Timer>
+          <Timer istimeisup={setTimeIsup} duration={props.duration}></Timer>
         )}
       </div>
+      {props.startGame == true ? (
+        <JerseyNumber number={props.jerseyNum}></JerseyNumber>
+      ) : null}
     </div>
   );
 }

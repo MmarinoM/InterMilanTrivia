@@ -1,0 +1,14 @@
+h2 {
+  color: white;
+  font-size: 96px;
+  text-transform: uppercase;
+  margin: 0;
+  margin-bottom: 10px;
+}
+p {
+  color: white;
+  font-size: 21px;
+  font-weight: 300;
+  font-family: "Open Sans", sans-serif;
+  margin-top: 0;
+}
